@@ -58,10 +58,8 @@ section:after {
   height: 235px;
   line-height: 3em;
   text-align: center;
-  text-transform: capitalize;
   border-radius: 10px;
-  box-shadow: 2px 2px 5px #555;
-  /* Slim drop shadow so as not to bleed into the bounding box of the next card  */ }
+  box-shadow: 2px 2px 5px #555; }
 
 .card {
   position: relative;
@@ -74,6 +72,7 @@ section:after {
   cursor: pointer; }
 
 .card .front {
+  color: black;
   background-color: ivory;
   -webkit-transform: rotateX(0deg) rotateY(0deg);
   transform: rotateX(0deg) rotateY(0deg);
@@ -81,8 +80,7 @@ section:after {
   transition: all 0.4s ease-in-out;
   -webkit-backface-visibility: visible;
   backface-visibility: visible;
-  z-index: 10;
-  color: black; }
+  z-index: 10; }
 
 .card .back {
   background: url(images/blue-card.png);
@@ -91,23 +89,9 @@ section:after {
   transform: rotateX(0deg) rotateY(180deg);
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  -webkit-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   z-index: 5; }
-
-.card:nth-child(1) {
-  -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0);
-  transform: rotateX(0deg) rotateY(0deg) rotateZ(0);
-  -webkit-animation: drop1 0.5s ease-in;
-  animation: drop1 0.5s ease-in; }
-
-.card:nth-child(2) {
-  -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0);
-  transform: rotateX(0deg) rotateY(0deg) rotateZ(0);
-  -webkit-animation: drop2 0.5s ease-in;
-  animation: drop2 0.5s ease-in; }
 
 .card.flip .front {
   -webkit-transform: rotateY(180deg);

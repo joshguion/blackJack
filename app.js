@@ -119,8 +119,11 @@ function displayCard(hand) {
 
 }
 
-
-
+function playAsDealer() {
+    var dealHand = new Hand();
+    while (dealHand.score() < 17) {
+        dealHand.hitMe();
+    }
     $('.front').append("<span>" + "Dealer's " + dealHand.printHand() + "</span>" + "<br>");
     $('.output').append("<span>" + "Dealer Total: " + dealHand.score() + "</span>");
     return dealHand.score();
@@ -129,10 +132,10 @@ function displayCard(hand) {
 
 function playAsUser() {
 var userHand = new Hand();
-var playing = confirm("Your " + userHand.printHand() + "\n" + "Current score: " + userHand.score() + "\n" + "Click OK to hit or cancel for standing.");
+var playing = confirm("Your hand: " + userHand.printHand() + "\n" + "Current score: " + userHand.score() + "\n" + "Click OK to hit or cancel for standing.");
     while (playing && userHand.score() < 21) {
     userHand.hitMe();
-    playing = confirm("Your " + userHand.printHand() + " for the score of " + userHand.score());
+    playing = confirm("Your hand: " + userHand.printHand() + " for the score of " + userHand.score());
     }
     $('.front').append("<span>" + " " + userHand.printHand() + "</span>" + "<br>");
     $('.output').append("<span>" + "Player Total: " + userHand.score() + "</span>" + "<br>");
@@ -164,7 +167,6 @@ function declareWinner(user, dealer) {
 
 }
 function Game() {
-//  new deck opening in an array of 52 cards, each card is an array of [i for suit, j for rank]
     var cards = [];
     for (var i = 0; i < 4; i++) {
         for(var j = 0; j < 13; j++) {
@@ -195,7 +197,7 @@ function Game() {
             }
 
         }
-        alert("Your score: " + total + " Bye.");
+        alert("Your score: " + total + " Thanks for playing.");
         return;
     };
     }
@@ -205,27 +207,8 @@ function Game() {
 });
 
 
-//  splice method, to prevent from dealing the same card more than once
-//  splice method is called every time a new card is dealt.
-
 var newGame = new Game();
 newGame.playGame();
-
-// var model = {};
-// var controller = {
-//   init: function() {
-//     view.init();
-//     data.init();
-//   },
-// };
-// var view = {
-//   init:function(){
-//
-//   },
-//   render: function(){
-//
-//   }
-// };
 
 
 }) ();
