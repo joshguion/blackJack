@@ -1,4 +1,3 @@
-
 (function() {
   'use strict';
 
@@ -133,11 +132,11 @@ function playAsDealer() {
 function playAsUser() {
 var userHand = new Hand();
 var playing = confirm("Your hand: " + userHand.printHand() + "\n" + "Current score: " + userHand.score() + "\n" + "Click OK to hit or cancel for standing.");
+$('.front').append("<span>" + " " + userHand.printHand() + "</span>" + "<br>");
     while (playing && userHand.score() < 21) {
     userHand.hitMe();
     playing = confirm("Your hand: " + userHand.printHand() + " for the score of " + userHand.score());
     }
-    $('.front').append("<span>" + " " + userHand.printHand() + "</span>" + "<br>");
     $('.output').append("<span>" + "Player Total: " + userHand.score() + "</span>" + "<br>");
     return userHand.score();
 }
