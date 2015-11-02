@@ -208,6 +208,7 @@ function Game() {
 
 
 var newGame = new Game();
+
 newGame.playGame();
 
 
