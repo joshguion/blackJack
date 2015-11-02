@@ -99,7 +99,7 @@ function Hand() {
             }
         };
         for (var i = 0; i < cards.length; i++) {
-            preview = preview + "\n" + faceCardPrinter(cards[i].getNumber()) + " of " + suitPrinter(cards[i].getSuit()) + ", ";
+            preview += "\n" + faceCardPrinter(cards[i].getNumber()) + " of " + suitPrinter(cards[i].getSuit()) + ", ";
 
         }
         return preview;
@@ -123,7 +123,7 @@ function playAsDealer() {
     while (dealHand.score() < 17) {
         dealHand.hitMe();
     }
-    $('.front').append("<span>" + "Dealer's " + dealHand.printHand() + "</span>" + "<br>");
+    $('.dealerFront').append("<span>" + "Dealer's " + dealHand.printHand() + "</span>" + "<br>");
     $('.output').append("<span>" + "Dealer Total: " + dealHand.score() + "</span>");
     return dealHand.score();
 
@@ -132,7 +132,7 @@ function playAsDealer() {
 function playAsUser() {
 var userHand = new Hand();
 var playing = confirm("Your hand: " + userHand.printHand() + "\n" + "Current score: " + userHand.score() + "\n" + "Click OK to hit or cancel for standing.");
-$('.front').append("<span>" + " " + userHand.printHand() + "</span>" + "<br>");
+$('.userFront').append("<span>" + " " + userHand.printHand() + "</span>" + "<br>");
     while (playing && userHand.score() < 21) {
     userHand.hitMe();
     playing = confirm("Your hand: " + userHand.printHand() + " for the score of " + userHand.score());
