@@ -1,0 +1,153 @@
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 0 auto;
+  width: 100%;
+}
+
+hr {
+  border: 0;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: rgba(0, 0, 0, 0.1 )
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.heading {
+  text-align: center;
+  font-size: 4em;
+  font-family: "Helvetica Neue", Helvetica, Arial;
+  letter-spacing: 0.1em;
+  border-bottom: 1px solid black;
+  border: 0;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: rgba(0, 0, 0, 0.1 )
+}
+
+section {
+  width: 100%;
+}
+
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.playerHand {
+  float: left;
+  width: 50%;
+  padding-left: 100px;
+}
+.dealerHand {
+  float: left;
+  width: 50%;
+  padding-left: 100px;
+}
+
+.output {
+  font-size: 2em;
+  font-family: "Helvetica Neue", Helvetica, Arial;
+  margin-top: 0;
+  text-align: center;
+}
+
+.card .face {
+  position: absolute;
+  border: 1px solid #333;
+  color: white;
+  width: 150px;
+  height: 235px;
+  line-height: 3em;
+  text-align: center;
+  text-transform: capitalize;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px #555;
+  /* Slim drop shadow so as not to bleed into the bounding box of the next card  */
+}
+
+.card {
+  position: relative;
+  display: inline-block;
+  background: transparent;
+  color: ivory;
+  width: 150px;
+  height: 200px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.card .front {
+  background-color: ivory;
+  -webkit-transform: rotateX(0deg) rotateY(0deg);
+          transform: rotateX(0deg) rotateY(0deg);
+  -webkit-transition: all .4s ease-in-out;
+          transition: all .4s ease-in-out;
+  -webkit-backface-visibility: visible;
+          backface-visibility: visible;
+  z-index: 10;
+  color: black;
+}
+.card .back {
+  background: url(images/blue-card.png);
+  background-size: contain;
+  -webkit-transform: rotateX(0deg) rotateY(180deg);
+          transform: rotateX(0deg) rotateY(180deg);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transition: all .4s ease-in-out;
+          transition: all .4s ease-in-out;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  z-index: 5;
+}
+
+.card:nth-child(1) {
+  -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0);
+          transform: rotateX(0deg) rotateY(0deg) rotateZ(0);
+  -webkit-animation: drop1 .5s ease-in;
+          animation: drop1 .5s ease-in;
+}
+
+.card:nth-child(2) {
+  -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0);
+          transform: rotateX(0deg) rotateY(0deg) rotateZ(0);
+  -webkit-animation: drop2 .5s ease-in;
+          animation: drop2 .5s ease-in;
+}
+
+.card.flip .front {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transition: all .4s ease-in-out;
+          transition: all .4s ease-in-out;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  z-index: 900;
+}
+
+.card.flip .back {
+  -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transition: all .4s ease-in-out;
+          transition: all .4s ease-in-out;
+  -webkit-backface-visibility: visible;
+          backface-visibility: visible;
+  z-index: 1000;
+}
+
+.buttons {
+  margin-left: 17%;
+  margin-top: 5%;
+}
